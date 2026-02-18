@@ -1,0 +1,105 @@
+.login-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Login header */
+.login-header {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Form input groups */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #9B1C1C;
+  outline: none;
+}
+
+/* Submit button */
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #9B1C1C; /* Smooth red */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #7a1515; /* Darker red on hover */
+}
+
+/* Forgot password link */
+.forgot-password {
+  margin-top: 15px;
+}
+
+.forgot-password a {
+  color: #9B1C1C;
+  font-size: 14px;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Add a slight responsive design for mobile */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+  
+  .login-header {
+    font-size: 1.6rem;
+  }
+  
+  .input-group input {
+    padding: 10px;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

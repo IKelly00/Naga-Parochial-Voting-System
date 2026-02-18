@@ -1,0 +1,31 @@
+header {
+    padding: 15px 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 99;
+}
+
+header .img-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.img-container .school-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links a {
+    border: 1px solid var(--border-color);
+    color: var(--font-color);
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 16px;
+    outline: none;
+    background-color: var(--background-color);
+}
