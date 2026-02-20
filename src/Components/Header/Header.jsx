@@ -12,7 +12,7 @@ const Header = () => {
             <p className="school-name">Naga Parochial School</p>
           </div>
           <div className="nav-links">
-            <a href="#">Vote Now</a>
+            <a id='voteNow' href="#">Vote Now</a>
           </div>
         </header>
     </>
