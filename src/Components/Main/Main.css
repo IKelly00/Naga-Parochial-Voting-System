@@ -1,9 +1,9 @@
 .login-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
 }
 
 .main-container {
@@ -17,7 +17,6 @@
   border: 2px solid var(--border-color);
 }
 
-/* Login header */
 .login-header {
   font-size: 2rem;
   color: #333;
@@ -25,7 +24,6 @@
   font-weight: 500;
 }
 
-/* Form input groups */
 .input-group {
   margin-bottom: 20px;
   text-align: left;
@@ -48,15 +46,14 @@
 }
 
 .input-group input:focus {
-  border-color: #9B1C1C;
+  border-color: #9b1c1c;
   outline: none;
 }
 
-/* Submit button */
 .btn {
   width: 100%;
   padding: 14px;
-  background-color: #9B1C1C; /* Smooth red */
+  background-color: #9b1c1c;
   border: none;
   border-radius: 8px;
   color: white;
@@ -66,16 +63,15 @@
 }
 
 .btn:hover {
-  background-color: #7a1515; /* Darker red on hover */
+  background-color: #7a1515;
 }
 
-/* Forgot password link */
 .forgot-password {
   margin-top: 15px;
 }
 
 .forgot-password a {
-  color: #9B1C1C;
+  color: #9b1c1c;
   font-size: 14px;
   text-decoration: none;
   transition: text-decoration 0.3s ease;
@@ -85,16 +81,15 @@
   text-decoration: underline;
 }
 
-/* Add a slight responsive design for mobile */
 @media (max-width: 480px) {
   .login-container {
     padding: 20px;
   }
-  
+
   .login-header {
     font-size: 1.6rem;
   }
-  
+
   .input-group input {
     padding: 10px;
   }
@@ -104,4 +99,3 @@
     font-size: 14px;
   }
 }
-
