@@ -38,15 +38,6 @@ const Main = () => {
           </form>
         </div>
       </div>
-
-      <div className="card-container">
-        <div className="cards">
-          <div className="card">
-            <img src="" alt="" className="candidates" />
-            <p className="name">Michael Roy A. Jardinel</p>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
