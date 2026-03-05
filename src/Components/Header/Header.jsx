@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         <div className="nav-links">
           <button
-            className="login-btn"
+            className="vote-btn"
             id="voteNow"
             href="#"
             onClick={toggleModal}

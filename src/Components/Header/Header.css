@@ -17,24 +17,44 @@ header .img-container {
   gap: 20px;
 }
 
+header .logo {
+  border-radius: 50%;
+}
+
 .img-container .school-name {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: 600;
 }
 
-.nav-links .login-btn {
+@media (max-width: 425px) {
+  .img-container .school-name {
+    display: none;
+  }
+}
+
+.nav-links .vote-btn {
   border: 0.5px solid var(--border-color);
   color: var(--font-color);
-  text-decoration: none;
   font-size: 16px;
   padding: 10px 30px;
-  border-radius: 16px;
+  border-radius: 8px;
   outline: none;
   background-color: var(--primary-color);
   cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
 }
 
-/* The Backdrop Layer */
+@media (max-width: 425px) {
+  .nav-links .vote-btn {
+    width: 6rem;
+    font-size: 12px;
+  }
+}
+
 .login-modal {
   top: 0;
   left: 0;
