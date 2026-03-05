@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.css";
 import "./Card.css";
-
+import "../Header/Header.jsx";
 const Main = () => {
   return (
     <>
@@ -43,12 +43,23 @@ const Main = () => {
         <div className="cards">
           <div className="card">
             <img src="" alt="" className="candidates" />
-            <p className="name">Michael Roy A. Jardinel</p>
+            {/* <p className="name">Michael Roy A. Jardinel</p> */}
           </div>
         </div>
       </div>
     </>
   );
+};
+
+const vote = document.getElementById("voteNow");
+const loginModal = document.getElementById("login-modal");
+
+vote.onclick = function () {
+  if (loginModal.style.display === "none") {
+    loginModal.style.display = "flex";
+  } else {
+    loginModal.style.display = "none";
+  }
 };
 
 export default Main;

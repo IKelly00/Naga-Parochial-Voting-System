@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
 * {
-    font-family: "Poppins", sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  font-family: "Outfit", "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --font-color: #333333;
-    --border-color: #80808083;
+  --font-color: #333333;
+  --border-color: #80808083;
 }
