@@ -5,9 +5,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 :root {
-  --font-color: #333333;
+  --font-color: #fefefe;
   --border-color: #80808083;
+  --primary-color: #9b1c1c;
+  --icon-color: #888;
 }
