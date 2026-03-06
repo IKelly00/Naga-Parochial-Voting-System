@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Header.css";
 import Logo from "../../assets/Logo.jpg";
-import { User, LockKeyhole, MoveRight, X, Eye, EyeClosed } from "lucide-react";
+import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
+import "./Header.css";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +15,7 @@ const Header = () => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
-  //
+
   return (
     <>
       <header>
