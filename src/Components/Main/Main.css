@@ -24,9 +24,37 @@
   padding-bottom: 0.1em;
 }
 
-.container p {
-  font-size: 1.3rem;
+.typing-text {
+  font-size: 1.25rem;
   color: var(--p-color);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--p-color);
+  width: 400px;
+  animation:
+    typing 4s steps(35) infinite alternate,
+    blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0%,
+  10% {
+    width: 0;
+  }
+  90%,
+  100% {
+    width: 400px;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--p-color);
+  }
 }
 
 .card-container {
