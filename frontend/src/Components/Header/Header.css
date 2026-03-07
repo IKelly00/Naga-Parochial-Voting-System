@@ -74,7 +74,7 @@ header .logo {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/src/assets/NPS_Background_Image.jpg");
+  background-image: url("/src/assets/Image/NPS_Background_Image.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(10px) brightness(0.7);

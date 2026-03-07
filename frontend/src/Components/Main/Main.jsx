@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.css";
+import MyVideo from "../../assets/Videos/Video.mp4";
 
 const Main = () => {
   return (
@@ -13,7 +14,15 @@ const Main = () => {
             </p>
           </div>
           <div className="card-container">
-            <div className="card"></div>
+            <div className="card">
+              <video
+                controls
+                autoplay
+                loop
+                src={MyVideo}
+                className="nps-video"
+              ></video>
+            </div>
           </div>
         </div>
       </div>

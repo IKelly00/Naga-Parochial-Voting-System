@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../../assets/Logo.jpg";
+import Logo from "../../assets/Image/Logo.jpg";
 import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
 import "./Header.css";
 
