@@ -80,6 +80,7 @@ header .logo {
   filter: blur(10px) brightness(0.7);
   z-index: -1;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .main-container {
@@ -92,10 +93,9 @@ header .logo {
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   position: relative;
-  text-align: left; /* Better for forms than center align */
+  text-align: left;
 }
 
-/* Typography */
 .login-header {
   margin: 0;
   font-size: 2rem;
@@ -110,10 +110,10 @@ header .logo {
   text-align: center;
 }
 
-/* Input Styling */
 .input-group {
   margin-bottom: 20px;
 }
+
 .input-group label {
   display: block;
   margin-bottom: 8px;
@@ -155,7 +155,6 @@ header .logo {
   outline: none;
 }
 
-/* Button & Links */
 .btn {
   width: 100%;
   padding: 14px;

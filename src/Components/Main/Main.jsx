@@ -6,10 +6,12 @@ const Main = () => {
     <>
       <div className="home-container">
         <div className="container">
-          <h1 className="home-heading">Empowering Student Voices</h1>
-          <p className="typing-text">
-            Student Commission Campaign and Election
-          </p>
+          <div className="header">
+            <h1 className="home-heading">Empowering Student Voices</h1>
+            <p className="typing-text">
+              Student Commission Campaign and Election
+            </p>
+          </div>
           <div className="card-container">
             <div className="card"></div>
           </div>
