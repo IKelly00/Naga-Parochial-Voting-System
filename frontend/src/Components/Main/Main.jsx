@@ -23,6 +23,12 @@ const Main = () => {
                 className="nps-video"
               ></video>
             </div>
+            <div className="card-buttons">
+              <button className="card-btn learn-more">Learn More</button>
+              <button className="card-btn view-candidates">
+                View Candidates
+              </button>
+            </div>
           </div>
         </div>
       </div>
