@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../assets/Image/logo.png";
 import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,13 +19,13 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className="img-container">
-          <img src={Logo} className="logo" width="50" height="50"></img>
-          <p className="school-name">Naga Parochial School</p>
+        <div className={styles.imgContainer}>
+          <img src={Logo} className={styles.logo} width="50" height="50"></img>
+          <p className={styles.schoolName}>Naga Parochial School</p>
         </div>
-        <div className="nav-links">
+        <div className={styles.navLinks}>
           <button
-            className="vote-btn"
+            className={styles.voteBtn}
             id="voteNow"
             href="#"
             onClick={toggleModal}
@@ -36,25 +36,25 @@ const Header = () => {
       </header>
 
       <div
-        className="login-modal"
+        className={styles.loginModal}
         id="login-modal"
         style={{ display: isModalOpen ? "flex" : "none" }}
       >
-        <div className="main-container">
-          <button className="close-btn" onClick={toggleModal}>
+        <div className={styles.mainContainer}>
+          <button className={styles.closeBtn} onClick={toggleModal}>
             <X size={20} />
           </button>
 
-          <h1 className="login-header">Login</h1>
-          <p className="login-subtitle">
+          <h1 className={styles.loginHeader}>Login</h1>
+          <p className={styles.loginSubtitle}>
             Please enter your credentials to continue
           </p>
 
           <form action="/login" method="POST" id="loginForm">
-            <div className="input-group">
+            <div className={styles.inputGroup}>
               <label htmlFor="username">Username</label>
-              <div className="input-wrapper">
-                <User className="input-icon" size={18} />
+              <div className={styles.inputWrapper}>
+                <User className={styles.inputIcon} size={18} />
                 <input
                   type="text"
                   id="username"
@@ -65,10 +65,10 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="input-group">
+            <div className={styles.inputGroup}>
               <label htmlFor="password">Password</label>
-              <div className="input-wrapper">
-                <LockKeyhole className="input-icon" size={18} />
+              <div className={styles.inputWrapper}>
+                <LockKeyhole className={styles.inputIcon} size={18} />
                 <input
                   type={showPassword ? "password" : "text"}
                   id="password"
@@ -77,7 +77,7 @@ const Header = () => {
                   required
                 />
                 <Eye
-                  className="show-password"
+                  className={styles.showPassword}
                   id="show-password"
                   onClick={togglePassword}
                   size={18}
@@ -85,11 +85,11 @@ const Header = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn">
+            <button type="submit" className={styles.btn}>
               Login <MoveRight size={18} />
             </button>
 
-            <div className="forgot-password">
+            <div className={styles.forgotPassword}>
               <a href="#">Forgot password?</a>
             </div>
           </form>

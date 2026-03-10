@@ -15,28 +15,28 @@ header {
   z-index: 100;
 }
 
-header .img-container {
+.imgContainer {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-header .logo {
+.logo {
   border-radius: 50%;
 }
 
-.img-container .school-name {
+.schoolName {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: 600;
 }
 
 @media (max-width: 425px) {
-  .img-container .school-name {
+  .schoolName {
     display: none;
   }
 }
 
-.nav-links .vote-btn {
+.voteBtn {
   border: 0.5px solid var(--border-color);
   color: var(--font-color);
   font-size: 16px;
@@ -52,22 +52,22 @@ header .logo {
   width: 8rem;
 }
 
-.vote-btn:hover {
+.voteBtn:hover {
   filter: brightness(1.1);
 }
 
-.vote-btn:active {
+.voteBtn:active {
   scale: 0.95;
 }
 
 @media (max-width: 425px) {
-  .nav-links .vote-btn {
+  .navLinks .voteBtn {
     width: 6rem;
     font-size: 12px;
   }
 }
 
-.login-modal {
+.loginModal {
   position: fixed;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@ header .logo {
   transition: all 0.3s ease-in-out;
 }
 
-.main-container {
+.mainContainer {
   position: relative;
   background: white;
   padding: 40px;
@@ -93,25 +93,25 @@ header .logo {
   text-align: left;
 }
 
-.login-header {
+.loginHeader {
   margin: 0;
   font-size: 2rem;
   color: #1a1a1a;
   text-align: center;
   margin-bottom: 10px;
 }
-.login-subtitle {
+.loginSubtitle {
   color: #666;
   margin-bottom: 25px;
   font-size: 0.9rem;
   text-align: center;
 }
 
-.input-group {
+.inputGroup {
   margin-bottom: 20px;
 }
 
-.input-group label {
+.inputGroup label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
@@ -119,19 +119,19 @@ header .logo {
   color: #444;
 }
 
-.input-wrapper {
+.inputWrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
-.input-icon {
+.inputIcon {
   position: absolute;
   left: 12px;
   color: var(--icon-color);
   pointer-events: none;
 }
 
-.input-wrapper input {
+.inputWrapper input {
   width: 100%;
   padding: 12px 12px 12px 40px;
   border-radius: 10px;
@@ -140,14 +140,14 @@ header .logo {
   transition: all 0.2s;
 }
 
-.input-wrapper .show-password {
+.showPassword {
   position: absolute;
   right: 12px;
   cursor: pointer;
   color: var(--icon-color);
 }
 
-.input-wrapper input:focus {
+input:focus {
   border-color: var(--primary-color);
   outline: none;
 }
@@ -172,7 +172,7 @@ header .logo {
   opacity: 0.9;
 }
 
-.close-btn {
+.closeBtn {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -188,15 +188,19 @@ header .logo {
   color: #333;
 }
 
-.close-btn:hover {
+.closeBtn:hover {
   background: #e0e0e0;
 }
 
-.forgot-password {
+.closeBtn:active {
+  scale: 0.8;
+}
+
+.forgotPassword {
   text-align: center;
   margin-top: 20px;
 }
-.forgot-password a {
+.forgotPassword a {
   font-size: 0.85rem;
   color: var(--primary-color);
   text-decoration: none;

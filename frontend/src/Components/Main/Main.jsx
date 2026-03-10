@@ -1,33 +1,32 @@
 import React from "react";
-import "./Main.css";
 import MyVideo from "../../assets/Videos/Video.mp4";
+import styles from "./Main.module.css";
 
 const Main = () => {
   return (
     <>
-      <div className="home-container">
-        <div className="container">
-          <div className="header">
-            <h1 className="home-heading">Empowering Student Voices</h1>
-            <p className="typing-text">
+      <div className={styles.homeContainer}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h1 className={styles.homeHeading}>Empowering Student Voices</h1>
+            <p className={styles.typingText}>
               Student Commission Campaign and Election
             </p>
           </div>
-          <div className="card-container">
-            <div className="card">
+          <div className={styles.cardContainer}>
+            <div className={styles.card}>
               <video
                 controls
-                autoplay
+                autoPlay
+                muted
                 loop
                 src={MyVideo}
-                className="nps-video"
+                className={styles.npsVideo}
               ></video>
             </div>
-            <div className="card-buttons">
-              <button className="card-btn learn-more">Learn More</button>
-              <button className="card-btn view-candidates">
-                View Candidates
-              </button>
+            <div className={styles.cardButtons}>
+              <button className={styles.cardBtn}>Learn More</button>
+              <button className={styles.cardBtn}>View Candidates</button>
             </div>
           </div>
         </div>

@@ -8,7 +8,8 @@
 }
 
 body {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-image: url("./assets/Image/background-image.png");
 }
 
@@ -19,4 +20,9 @@ body {
   --icon-color: #888;
   --background-color: rgb(235, 235, 235);
   --p-color: #4e4e4ece;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color);
 }

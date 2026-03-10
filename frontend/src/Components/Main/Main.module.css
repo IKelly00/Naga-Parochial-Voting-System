@@ -1,4 +1,4 @@
-.home-container {
+.homeContainer {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 
-.container .home-heading {
+.container .homeHeading {
   font-size: 4rem;
   margin-bottom: 0.5rem;
   background: linear-gradient(360deg, #1b1b1b 10%, #8b949e 100%);
@@ -32,7 +32,7 @@
   text-align: center;
 }
 
-.typing-text {
+.typingText {
   font-size: 1.25rem;
   color: var(--p-color);
   white-space: nowrap;
@@ -64,7 +64,7 @@
   }
 }
 
-.card-container {
+.cardContainer {
   width: 80%;
   background-color: rgb(235, 235, 235);
   height: 100vh;
@@ -86,7 +86,7 @@
   background-color: rgb(235, 235, 235);
 }
 
-.card video {
+.card .npsVideo {
   position: relative;
   width: 100%;
   height: 100%;
@@ -94,7 +94,7 @@
   border-radius: 8px;
 }
 
-.card-container .card-buttons {
+.cardContainer .cardButtons {
   width: 100%;
   display: flex;
   align-items: center;
@@ -103,7 +103,7 @@
   margin-bottom: 2rem;
 }
 
-.card-buttons .card-btn {
+.cardButtons .cardBtn {
   border: 0.5px solid var(--border-color);
   color: var(--font-color);
   font-size: 16px;
@@ -119,10 +119,10 @@
   width: 10rem;
 }
 
-.card-btn:hover {
+.cardBtn:hover {
   filter: brightness(1.1);
 }
 
-.card-btn:active {
+.cardBtn:active {
   scale: 0.95;
 }
