@@ -11,6 +11,11 @@ const Main = () => {
     navigate("/learn");
   };
 
+  const toggleCandidates = (e) => {
+    e.preventDefault();
+    navigate("/candidates");
+  };
+
   return (
     <>
       <div className={styles.homeContainer}>
@@ -28,7 +33,7 @@ const Main = () => {
                 autoPlay
                 muted
                 loop
-                lpreload="metadata"
+                preload="metadata"
                 src={MyVideo}
                 className={styles.npsVideo}
               ></video>
@@ -37,7 +42,9 @@ const Main = () => {
               <button className={styles.cardBtn} onClick={toggleLearn}>
                 Learn More
               </button>
-              <button className={styles.cardBtn}>View Candidates</button>
+              <button className={styles.cardBtn} onClick={toggleCandidates}>
+                View Candidates
+              </button>
             </div>
           </div>
         </div>

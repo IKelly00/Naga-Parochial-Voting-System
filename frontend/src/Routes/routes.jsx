@@ -2,6 +2,7 @@ import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import Login from "../Components/Header/Header";
 import Main from "../Components/Main/Main";
 import Learn from "../Components/Learn/Learn";
+import Candidates from "../Components/Candidates/Candidates";
 
 export const routes = [
   {
@@ -20,7 +21,7 @@ export const routes = [
     path: "/dashboard",
     element: (
       <>
-        <Login />
+        <Dashboard />
       </>
     ),
     title: "Dashboard",
@@ -35,6 +36,17 @@ export const routes = [
       </>
     ),
     title: "Learn More",
+  },
+  {
+    id: 4,
+    path: "/candidates",
+    element: (
+      <>
+        <Login />
+        <Candidates />
+      </>
+    ),
+    title: "Candidates",
   },
 ];
 

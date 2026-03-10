@@ -18,7 +18,7 @@ const Header = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
   const togglePassword = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
