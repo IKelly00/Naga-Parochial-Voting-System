@@ -1,6 +1,7 @@
 import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import Login from "../Components/Header/Header";
 import Main from "../Components/Main/Main";
+import Learn from "../Components/Learn/Learn";
 
 export const routes = [
   {
@@ -17,9 +18,24 @@ export const routes = [
   {
     id: 2,
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <>
+        <Login />
+      </>
+    ),
     title: "Dashboard",
+  },
+  {
+    id: 3,
+    path: "/learn",
+    element: (
+      <>
+        <Login />
+        <Learn />
+      </>
+    ),
+    title: "Learn More",
   },
 ];
 
-// console.log(routes[0]);
+console.log(routes[2]);
