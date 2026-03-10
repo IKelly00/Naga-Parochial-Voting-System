@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import Logo from "../../assets/Image/logo.png";
 import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
 import styles from "./Header.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handlleLogin = (e) => {
+    e.preventDefault();
+    navigate("/dashboard");
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = (e) => {
     e.preventDefault();
@@ -50,7 +58,12 @@ const Header = () => {
             Please enter your credentials to continue
           </p>
 
-          <form action="/login" method="POST" id="loginForm">
+          <form
+            action="/login"
+            method="POST"
+            id="loginForm"
+            onSubmit={handlleLogin}
+          >
             <div className={styles.inputGroup}>
               <label htmlFor="username">Username</label>
               <div className={styles.inputWrapper}>

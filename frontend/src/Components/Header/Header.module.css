@@ -79,7 +79,6 @@ header {
   z-index: 1000;
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease-in-out;
 }
 
 .mainContainer {
