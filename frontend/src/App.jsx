@@ -1,23 +1,26 @@
-import React from "react";
-import Header from "./Components/Header/Header";
-import Main from "./Components/Main/Main";
-import Dashboard from "./Components/Dashboard/Dashboard";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { routes } from "./Routes/routes";
 
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentRoute = routes.find(
+      (route) =>
+        route.path ===
+        location.pathname.replace("/Naga-Parochial-Voting-System", ""),
+    );
+    if (currentRoute?.title) {
+      document.title = currentRoute.title + " | Voting System";
+    }
+  }, [location.pathname]);
+
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Header />
-            <Main />
-          </>
-        }
-      />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="*" element={<h1>404 Page Not Found</h1>} />
+      {routes.map((route) => (
+        <Route key={route.id} path={route.path} element={route.element} />
+      ))}
     </Routes>
   );
 };
