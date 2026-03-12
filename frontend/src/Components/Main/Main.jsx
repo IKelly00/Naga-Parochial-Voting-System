@@ -5,16 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { ChevronUp } from "lucide-react";
 
 const Main = () => {
-  const navigate = useNavigate();
-
-  const toggleLearn = (e) => {
-    e.preventDefault();
-    navigate("/learn");
-  };
-
-  const toggleCandidates = (e) => {
-    e.preventDefault();
-    navigate("/candidates");
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -86,7 +81,7 @@ const Main = () => {
             &copy; {new Date().getFullYear()} - Naga Parochial Election
             Commission. All rights reserved. Conducted with integrity and faith.
           </p>
-          <a href="#header">
+          <a onClick={scrollToTop}>
             <ChevronUp strokeWidth={1} size={12} className={s.upIcon} />
           </a>
         </div>
