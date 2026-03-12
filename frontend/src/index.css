@@ -5,6 +5,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,7 +20,10 @@ body {
   --primary-color: #9b1c1c;
   --icon-color: #888;
   --background-color: rgb(235, 235, 235);
-  --p-color: #4e4e4ece;
+  --p-color: #64748b;
+
+  --card-color: #e5e7eb;
+  --color: #1e293b;
 }
 
 a {

@@ -26,19 +26,22 @@ const Header = () => {
 
   return (
     <>
-      <header>
+      <header id="header">
         <div className={styles.imgContainer}>
           <img src={Logo} className={styles.logo} width="50" height="50"></img>
           <p className={styles.schoolName}>Naga Parochial School</p>
         </div>
         <div className={styles.navLinks}>
+          <button className={styles.resultBtn} id="voteNow" href="#">
+            Results
+          </button>
           <button
-            className={styles.voteBtn}
+            className={styles.navBtn}
             id="voteNow"
             href="#"
             onClick={toggleModal}
           >
-            Vote Now
+            Login
           </button>
         </div>
       </header>

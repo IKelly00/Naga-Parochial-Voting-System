@@ -65,11 +65,10 @@
 }
 
 .cardContainer {
-  width: 80%;
+  width: 97%;
   background-color: rgb(235, 235, 235);
   height: 100vh;
   margin-top: 2rem;
-  border-radius: 1rem;
   background: rgba(255, 255, 255, 0.35);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -125,4 +124,101 @@
 
 .cardBtn:active {
   scale: 0.95;
+}
+
+/* Feature Content */
+
+.featureBox {
+  margin-top: 5rem;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.featureContent {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  border: 1px solid var(--card-color);
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  transition: all 0.1s ease-in;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 0px rgb(88, 88, 88);
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading {
+  color: var(--color);
+}
+
+.description {
+  color: var(--p-color);
+  line-height: 1.4rem;
+}
+
+/* Footer Content */
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.1px);
+  -webkit-backdrop-filter: blur(3.1px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px 16px 0 0;
+  padding: 2.5rem;
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+}
+
+.footerText {
+  color: var(--p-color);
+}
+
+.upIcon {
+  position: absolute;
+  right: 12px;
+  top: 25px;
+  right: 1.5rem;
+  width: 35px;
+  height: 35px;
+  background: var(--primary-color);
+  color: var(--font-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.upIcon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 3px 0px rgb(88, 88, 88);
+  filter: brightness(1.1);
 }
