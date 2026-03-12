@@ -52,7 +52,7 @@ const Main = () => {
               <p className={s.description}>
                 Enter your voter credentials to access the secure voting portal.
                 Your identity is verified to ensure one vote per registered
-                parishioner.
+                students voters.
               </p>
             </div>
           </div>
@@ -73,8 +73,7 @@ const Main = () => {
               <h2 className={s.heading}>Secure & Transparent</h2>
               <p className={s.description}>
                 Your vote is encrypted and securely recorded. Results are
-                tallied in real-time with complete transparency for all
-                parishioners.
+                tallied in real-time with complete transparency for all voters.
               </p>
             </div>
           </div>
