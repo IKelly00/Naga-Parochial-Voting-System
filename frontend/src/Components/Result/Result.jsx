@@ -10,7 +10,7 @@ const Result = () => {
           <div className={s.topContent}>
             <div className={s.live}>LIVE RESULTS</div>
             <div className={s.heading}>
-              {/* <span>📊</span> */}
+              <span>📊</span>
               <h1> Election Results</h1>
             </div>
             <p className={s.electionDesc}>
@@ -37,7 +37,7 @@ const Result = () => {
               <div className={s.cardsIcon}>📋</div>
               <div className={s.votesCount}>
                 <h3 className={s.count}>6</h3>
-                <p>TOTAL CANDIDATES</p>
+                <p>CONTESTED POSITION</p>
               </div>
             </div>
           </div>

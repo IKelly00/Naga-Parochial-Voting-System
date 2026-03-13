@@ -63,7 +63,7 @@
 }
 
 .heading span {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .heading h1 {
@@ -131,4 +131,22 @@
 .cards:hover {
   transform: translateY(-3px);
   box-shadow: 0px 5px 0px rgb(88, 88, 88);
+}
+
+@media (max-width: 423px) {
+  .heading h1 {
+    font-size: 2.8rem;
+  }
+
+  .electionDesc {
+    font-size: 0.7rem;
+  }
+
+  .heading span {
+    display: none;
+  }
+
+  .cardContent {
+    margin-top: 0.5rem;
+  }
 }

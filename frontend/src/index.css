@@ -13,6 +13,10 @@ body {
   background-image: url("./assets/Image/background-image.png");
 }
 
+#root {
+  height: 100%;
+}
+
 :root {
   --font-color: #fefefe;
   --border-color: #80808083;

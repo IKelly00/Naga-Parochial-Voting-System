@@ -19,7 +19,7 @@ const Main = () => {
           <div className={s.header}>
             <h1 className={s.homeHeading}>Empowering Student Voices</h1>
             <p className={s.typingText}>
-              Student Commission Campaign and Election
+              <span>📃</span> Student Commission Campaign and Election
             </p>
           </div>
           <div className={s.cardContainer}>
