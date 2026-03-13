@@ -1,6 +1,7 @@
-import Dashboard from "../Components/Pages/Dashboard/Dashboard";
+import UserDashboard from "../Components/Pages/UserDashboard/UserDashboard";
 import Login from "../Components/Header/Header";
 import Main from "../Components/Main/Main";
+import Result from "../Components/Result/Result";
 
 export const routes = [
   {
@@ -19,10 +20,21 @@ export const routes = [
     path: "/dashboard",
     element: (
       <>
-        <Dashboard />
+        <UserDashboard />
       </>
     ),
     title: "Dashboard",
+  },
+  {
+    id: 3,
+    path: "/results",
+    element: (
+      <>
+        <Login />
+        <Result />
+      </>
+    ),
+    title: "Votes Results",
   },
 ];
 

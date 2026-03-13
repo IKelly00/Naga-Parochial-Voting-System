@@ -1,0 +1,134 @@
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.topContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background-color: #ffeaea;
+  border: 1px solid #ffcccc;
+  border-radius: 50px;
+  color: #e32b2b;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.live::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #e32b2b;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.heading span {
+  font-size: 2rem;
+}
+
+.heading h1 {
+  font-size: 4rem;
+  background: linear-gradient(360deg, #1b1b1b 10%, #8b949e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.electionDesc {
+  color: var(--p-color);
+  text-align: center;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  flex: 1 1 20rem; /* Grow | Shrink | Basis (Ideal width) */
+  max-width: 25rem;
+  min-height: 12rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cardsIcon {
+  font-size: 3rem;
+}
+
+.votesCount {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.votesCount p {
+  letter-spacing: 0.1rem;
+  color: var(--p-color);
+}
+
+.cards:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 0px rgb(88, 88, 88);
+}

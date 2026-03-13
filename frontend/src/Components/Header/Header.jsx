@@ -7,9 +7,19 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
 
+  const goBackHome = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   const handlleLogin = (e) => {
     e.preventDefault();
     navigate("/dashboard");
+  };
+
+  const showResult = (e) => {
+    e.preventDefault();
+    navigate("/results");
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,12 +37,16 @@ const Header = () => {
   return (
     <>
       <header id="header">
-        <div className={styles.imgContainer}>
+        <div className={styles.imgContainer} onClick={goBackHome}>
           <img src={Logo} className={styles.logo} width="50" height="50"></img>
           <p className={styles.schoolName}>Naga Parochial School</p>
         </div>
         <div className={styles.navLinks}>
-          <button className={styles.resultBtn} id="voteNow" href="#">
+          <button
+            className={styles.resultBtn}
+            id="voteNow"
+            onClick={showResult}
+          >
             Results
           </button>
           <button

@@ -23,7 +23,6 @@
 
 .homeHeading {
   font-size: 4rem;
-  /* margin-bottom: 0.5rem; */
   background: linear-gradient(360deg, #1b1b1b 10%, #8b949e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
