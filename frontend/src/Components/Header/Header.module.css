@@ -1,18 +1,19 @@
 header {
-  padding: 15px 5%;
+  top: 0;
+  left: 0;
   width: 100%;
+  padding: 15px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
-  border-radius: 0 0 16px 16px;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 0 0 16 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.1px);
-  -webkit-backdrop-filter: blur(3.1px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 100;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 16px 16px;
+  animation: headerSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .imgContainer {
@@ -29,12 +30,7 @@ header {
 .schoolName {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: 600;
-}
-
-@media (max-width: 425px) {
-  .schoolName {
-    display: none;
-  }
+  color: #1a1a1a;
 }
 
 .navLinks {
@@ -46,56 +42,41 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 8rem;
+  min-width: 6rem;
   padding: 10px 24px;
-
   color: var(--font-color);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
-
   background-color: var(--primary-color);
-  border: 1px solid var(--border-color); /* 0.5px can look blurry on some screens */
-  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
   cursor: pointer;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Staggered entrance */
+  opacity: 0;
+  animation: navFadeIn 0.6s ease forwards;
+  animation-delay: 0.4s;
 }
 
 .resultBtn {
   composes: navBtn;
   background-color: transparent;
   color: var(--color);
+  animation-delay: 0.2s; /* Appears first */
 }
 
-.navBtn:hover {
-  filter: brightness(1.1);
-}
-
-.navBtn:active {
-  scale: 0.95;
-}
-
-@media (max-width: 425px) {
-  .navLinks .navBtn {
-    width: 6rem;
-    font-size: 12px;
-  }
-}
-
+/* Modal Styling */
 .loginModal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
+  animation: modalFadeIn 0.3s ease forwards;
 }
 
 .mainContainer {
@@ -104,22 +85,25 @@ header {
   padding: 40px;
   width: 90%;
   max-width: 400px;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   text-align: left;
+  /* Eye-catching Pop animation */
+  animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .loginHeader {
-  margin: 0;
-  font-size: 2rem;
+  margin: 0 0 10px 0;
+  font-size: 2.2rem;
   color: #1a1a1a;
   text-align: center;
-  margin-bottom: 10px;
+  font-weight: 800;
 }
+
 .loginSubtitle {
   color: #666;
   margin-bottom: 25px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-align: center;
 }
 
@@ -140,6 +124,7 @@ header {
   display: flex;
   align-items: center;
 }
+
 .inputIcon {
   position: absolute;
   left: 12px;
@@ -150,10 +135,15 @@ header {
 .inputWrapper input {
   width: 100%;
   padding: 12px 12px 12px 40px;
-  border-radius: 10px;
-  border: 1.5px solid #ddd;
-  background: white;
-  transition: all 0.2s;
+  border-radius: 12px;
+  border: 1.5px solid #eee;
+  background: #fdfdfd;
+  transition: border-color 0.2s;
+}
+
+.inputWrapper input:focus {
+  border-color: var(--primary-color);
+  outline: none;
 }
 
 .showPassword {
@@ -163,61 +153,103 @@ header {
   color: var(--icon-color);
 }
 
-input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
-
 .btn {
   width: 100%;
   padding: 14px;
   background: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: opacity 0.2s;
-}
-
-.btn:hover {
-  opacity: 0.9;
 }
 
 .closeBtn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   background: #f0f0f0;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #333;
-}
-
-.closeBtn:hover {
-  background: #e0e0e0;
-}
-
-.closeBtn:active {
-  scale: 0.8;
 }
 
 .forgotPassword {
   text-align: center;
   margin-top: 20px;
 }
+
 .forgotPassword a {
   font-size: 0.85rem;
   color: var(--primary-color);
   text-decoration: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 425px) {
+  .schoolName {
+    display: none;
+  }
+  header {
+    padding: 10px 5%;
+  }
+  .navLinks .navBtn {
+    min-width: 5rem;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* KEYFRAMES */
+
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes navFadeIn {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPop {
+  0% {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
