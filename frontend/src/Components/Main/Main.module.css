@@ -1,10 +1,7 @@
-/* --- Global Containers --- */
-
 .homeContainer {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  /* Entrance: Hero section slides up slightly */
   animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -49,7 +46,6 @@
   background-color: #fff1f1;
   border: 1px solid #ffcbcb;
   border-radius: 50px;
-  /* Entrance: Subtle fade in after title */
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
   animation-delay: 0.5s;
@@ -58,8 +54,6 @@
 .typingText span {
   margin-right: 0.5rem;
 }
-
-/* --- Video Card Section --- */
 
 .cardContainer {
   position: relative;
@@ -73,7 +67,6 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   padding: 1rem;
-  /* Entrance: Card scales in softly */
   opacity: 0;
   transform: translateY(30px);
   animation: slideUpScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -93,8 +86,6 @@
   height: 100%;
   object-fit: cover;
 }
-
-/* --- Feature Grid --- */
 
 .featureBox {
   width: 100%;
@@ -119,14 +110,12 @@
   border-radius: 24px;
   border: 1px solid #eee;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  /* Entrance: Boxes stagger into view */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUpStagger 0.8s ease forwards;
   transition: all 0.5s ease;
 }
 
-/* Staggered Delay for the three boxes */
 .box:nth-child(1) {
   animation-delay: 0.2s;
 }
