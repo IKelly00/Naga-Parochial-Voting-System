@@ -90,7 +90,6 @@
 .featureBox {
   width: 100%;
   padding: 6rem 2rem;
-  background-color: #fafafa;
 }
 
 .featureContent {
@@ -184,6 +183,12 @@ footer {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+
+.upIcon:hover {
+  box-shadow: 0 5px 0 rgb(119, 119, 119);
+  filter: brightness(1.1);
 }
 
 /* --- Keyframes --- */
