@@ -1,4 +1,4 @@
-import UserDashboard from "../Components/Pages/UserDashboard/UserDashboard";
+import UserDashboard from "../Pages/UserDashboard/UserDashboard";
 import Login from "../Components/Header/Header";
 import Main from "../Components/Main/Main";
 import Result from "../Components/Result/Result";
@@ -34,7 +34,7 @@ export const routes = [
         <Result />
       </>
     ),
-    title: "Votes Results",
+    title: "Live",
   },
 ];
 
