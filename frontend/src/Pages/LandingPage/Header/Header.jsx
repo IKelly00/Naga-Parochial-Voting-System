@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Logo from "../../assets/Image/logo.png";
+import Logo from "../../../assets/Image/logo.png";
 import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
 import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ schoolName = "Naga Parochial School" }) => {
   const navigate = useNavigate();
 
   const goBackHome = (e) => {
@@ -14,6 +14,7 @@ const Header = () => {
 
   const handlleLogin = (e) => {
     e.preventDefault();
+    setIsModalOpen(!isModalOpen);
     navigate("/dashboard");
   };
 
@@ -39,7 +40,7 @@ const Header = () => {
       <header id="header">
         <div className={styles.imgContainer} onClick={goBackHome}>
           <img src={Logo} className={styles.logo} width="50" height="50"></img>
-          <p className={styles.schoolName}>Naga Parochial School</p>
+          <p className={styles.schoolName}>{schoolName}</p>
         </div>
         <div className={styles.navLinks}>
           <button

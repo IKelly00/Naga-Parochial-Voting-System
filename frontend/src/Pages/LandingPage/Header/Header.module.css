@@ -63,7 +63,7 @@ header {
   composes: navBtn;
   background-color: transparent;
   color: var(--color);
-  animation-delay: 0.2s; /* Appears first */
+  animation-delay: 0.2s;
 }
 
 /* Modal Styling */

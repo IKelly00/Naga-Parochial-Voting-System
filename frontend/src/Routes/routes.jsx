@@ -1,22 +1,20 @@
 import UserDashboard from "../Pages/UserDashboard/UserDashboard";
-import Login from "../Components/Header/Header";
-import Main from "../Components/Main/Main";
-import Result from "../Components/Result/Result";
+import Header from "../Pages/LandingPage/Header/Header";
+import Main from "../Pages/LandingPage/Main/Main";
+import Result from "../Pages/LandingPage/Result/Result";
 
 export const routes = [
   {
-    id: 1,
     path: "/",
     element: (
       <>
-        <Login />
+        <Header />
         <Main />
       </>
     ),
     title: "Landing Page",
   },
   {
-    id: 2,
     path: "/dashboard",
     element: (
       <>
@@ -26,11 +24,10 @@ export const routes = [
     title: "Dashboard",
   },
   {
-    id: 3,
     path: "/results",
     element: (
       <>
-        <Login />
+        <Header />
         <Result />
       </>
     ),

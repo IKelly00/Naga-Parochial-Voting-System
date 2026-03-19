@@ -1,5 +1,5 @@
 import React from "react";
-import MyVideo from "../../assets/Videos/Video.mp4";
+import MyVideo from "../../../assets/Videos/Video.mp4";
 import s from "./Main.module.css";
 import { useNavigate } from "react-router-dom";
 import { ChevronUp } from "lucide-react";

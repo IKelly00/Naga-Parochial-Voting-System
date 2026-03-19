@@ -19,7 +19,7 @@ const App = () => {
   return (
     <Routes>
       {routes.map((route) => (
-        <Route key={route.id} path={route.path} element={route.element} />
+        <Route key={route.path} path={route.path} element={route.element} />
       ))}
     </Routes>
   );
