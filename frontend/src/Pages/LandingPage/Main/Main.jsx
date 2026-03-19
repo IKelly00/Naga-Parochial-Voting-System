@@ -1,7 +1,6 @@
-import React from "react";
-import MyVideo from "../../../assets/Videos/Video.mp4";
+import React, { useState, useEffect } from "react";
+import { campaignImages } from "../../../assets/Campaign/campaign";
 import s from "./Main.module.css";
-import { useNavigate } from "react-router-dom";
 import { ChevronUp } from "lucide-react";
 
 const Main = () => {
@@ -11,6 +10,28 @@ const Main = () => {
       behavior: "smooth",
     });
   };
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === campaignImages.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? campaignImages.length - 1 : prev - 1,
+    );
+  };
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(slideTimer);
+  }, [currentIndex]);
 
   return (
     <>
@@ -24,15 +45,33 @@ const Main = () => {
           </div>
           <div className={s.cardContainer}>
             <div className={s.card}>
-              <video
-                controls
-                autoPlay
-                muted
-                loop
-                preload="metadata"
-                src={MyVideo}
-                className={s.npsVideo}
-              ></video>
+              <div className={s.sliderContainer}>
+                <button className={s.leftArrow} onClick={prevSlide}>
+                  &#10094;
+                </button>
+
+                <div className={s.npsImage}>
+                  <img
+                    src={campaignImages[currentIndex]}
+                    alt={`Campaign ${currentIndex + 1}`}
+                  />
+                </div>
+
+                <button className={s.rightArrow} onClick={nextSlide}>
+                  &#10095;
+                </button>
+
+                {/* Optional: Dots indicator */}
+                <div className={s.dots}>
+                  {campaignImages.map((_, index) => (
+                    <span
+                      key={index}
+                      className={index === currentIndex ? s.activeDot : s.dot}
+                      onClick={() => setCurrentIndex(index)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
