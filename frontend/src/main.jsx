@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/Naga-Parochial-Voting-System">
+  <BrowserRouter basename="/Naga-Parochial-Voting-System/">
     <App />
   </BrowserRouter>,
 );
