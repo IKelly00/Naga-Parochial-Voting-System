@@ -34,5 +34,3 @@ export const routes = [
     title: "Live",
   },
 ];
-
-// console.log(routes[2]);

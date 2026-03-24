@@ -1,97 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import s from "./Result.module.css";
 import { Trophy } from "lucide-react";
+import { electionData } from "./electionData";
+import { motion, AnimatePresence } from "motion/react";
 
 const Result = () => {
-  const electionData = [
-    {
-      position: "President",
-      totalVotes: 610,
-      candidates: [
-        {
-          id: 1,
-          name: "Maria Santos",
-          party: "Unity for Progress",
-          votes: 245,
-          color: "#2563eb",
-        },
-        {
-          id: 2,
-          name: "Roberto Cruz",
-          party: "Parish First",
-          votes: 198,
-          color: "#dc2626",
-        },
-        {
-          id: 3,
-          name: "Elena Reyes",
-          party: "Faithful Servants",
-          votes: 167,
-          color: "#059669",
-        },
-      ],
-    },
-    {
-      position: "Vice President",
-      totalVotes: 399,
-      candidates: [
-        {
-          id: 4,
-          name: "Jose Garcia",
-          party: "Unity for Progress",
-          votes: 210,
-          color: "#2563eb",
-        },
-        {
-          id: 5,
-          name: "Carmen Dela Rosa",
-          party: "Parish First",
-          votes: 189,
-          color: "#dc2626",
-        },
-      ],
-    },
-    {
-      position: "Secretary",
-      totalVotes: 405,
-      candidates: [
-        {
-          id: 6,
-          name: "Angela Villanueva",
-          party: "Faithful Servants",
-          votes: 230,
-          color: "#059669",
-        },
-        {
-          id: 7,
-          name: "Pedro Ramos",
-          party: "Unity for Progress",
-          votes: 175,
-          color: "#2563eb",
-        },
-      ],
-    },
-    {
-      position: "Auditor",
-      totalVotes: 393,
-      candidates: [
-        {
-          id: 10,
-          name: "Francisco Torres",
-          party: "Unity for Progress",
-          votes: 205,
-          color: "#2563eb",
-        },
-        {
-          id: 11,
-          name: "Isabella Navarro",
-          party: "Parish First",
-          votes: 188,
-          color: "#dc2626",
-        },
-      ],
-    },
-  ];
+  const [activeTab, setActiveTab] = useState("All");
+  const [count, setCount] = useState(0);
+
+  const orgTitles = {
+    SCO: "Student Council Officers (SCO) - Grade 3-6",
+    SSG: "Supreme Student Government (SSG) - Grade 7-12",
+  };
+
+  const organizationsToShow =
+    activeTab === "All" ? ["SCO", "SSG"] : [activeTab];
+
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        // Point to the specific count API on port 5000
+        const response = await fetch("/api/get-count");
+        const data = await response.json();
+
+        // Access .count from the JSON object { count: X }
+        setCount(data.count);
+      } catch (error) {
+        console.error("Failed to fetch count:", error);
+      }
+    };
+    fetchCount();
+  }, []);
 
   return (
     <div className={s.mainContainer}>
@@ -113,14 +52,14 @@ const Result = () => {
           <div className={s.cards}>
             <div className={s.cardsIcon}>🗳️</div>
             <div className={s.votesCount}>
-              <h3 className={s.count}>1,414</h3>
+              <h3 className={s.count}>0</h3>
               <p>TOTAL VOTES CAST</p>
             </div>
           </div>
           <div className={s.cards}>
             <div className={s.cardsIcon}>👥</div>
             <div className={s.votesCount}>
-              <h3 className={s.count}>17</h3>
+              <h3 className={s.count}>{count}</h3>
               <p>TOTAL CANDIDATES</p>
             </div>
           </div>
@@ -133,63 +72,120 @@ const Result = () => {
           </div>
         </div>
 
-        {/* Dynamic Tally Sections */}
-        {electionData.map((section, idx) => (
-          <div key={idx} className={s.tallySection}>
-            <div className={s.tallyHeader}>
-              <h2>{section.position}</h2>
-              <span className={s.totalVotesBadge}>
-                {section.totalVotes} total votes
-              </span>
-            </div>
+        <div className={s.container}>
+          {/* 1. Filter Navigation */}
+          <div className={s.filterBar}>
+            {["All", "SCO", "SSG"].map((tab) => (
+              <button
+                key={tab}
+                className={activeTab === tab ? s.activeTab : s.tab}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
-            <div className={s.tallyList}>
-              {section.candidates.map((candidate, index) => {
-                const percentage = (
-                  (candidate.votes / section.totalVotes) *
-                  100
-                ).toFixed(1);
-                return (
-                  <div key={candidate.id} className={s.candidateRow}>
-                    <div className={s.rankBadge}>{index + 1}</div>
+          {/* 2. Dynamic Organization Sections */}
+          {organizationsToShow.map((org) => {
+            // Get only the positions that belong to this SCO/SSG group
+            const groupData = electionData.filter(
+              (item) => item.organization === org,
+            );
 
-                    <div className={s.candidateInfo}>
-                      <div className={s.nameRow}>
-                        <span className={s.candidateName}>
-                          👩‍💼 {candidate.name}
-                        </span>
-                        {index === 0 && (
-                          <span className={s.leadingBadge}>
-                            <Trophy size={12} /> LEADING
-                          </span>
-                        )}
-                      </div>
-                      <p className={s.partyName}>{candidate.party}</p>
+            if (groupData.length === 0) return null;
+
+            return (
+              <div key={org} className={s.orgGroup}>
+                <h1 className={s.orgTitle}>{orgTitles[org]}</h1>
+
+                {/* 3. The Tally Section (Dynamic mapping) */}
+                {groupData.map((section, idx) => (
+                  <div key={idx} className={s.tallySection}>
+                    <div className={s.tallyHeader}>
+                      <h2>{section.position}</h2>
+                      <span className={s.totalVotesBadge}>
+                        {section.totalVotes} total votes
+                      </span>
                     </div>
 
-                    <div className={s.progressWrapper}>
-                      <div className={s.progressBarBackground}>
-                        <div
-                          className={s.progressBarFill}
-                          style={{
-                            width: `${percentage}%`,
-                            backgroundColor: candidate.color,
-                          }}
-                        ></div>
-                      </div>
-                      <span className={s.percentText}>{percentage}%</span>
-                    </div>
+                    <div className={s.tallyList}>
+                      <AnimatePresence>
+                        {" "}
+                        {/* 2. Wrap for entry/exit animations */}
+                        {[...section.candidates]
+                          .sort((a, b) => b.votes - a.votes)
+                          .map((candidate, index) => {
+                            const percentage = (
+                              (candidate.votes / section.totalVotes) *
+                              100
+                            ).toFixed(1);
 
-                    <div className={s.voteResult}>
-                      <span className={s.voteNum}>{candidate.votes}</span>
-                      <span className={s.voteLabel}>VOTES</span>
+                            return (
+                              <motion.div
+                                layout // 3. The magic prop for swapping animation
+                                key={candidate.id}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 300,
+                                  damping: 30,
+                                }}
+                                className={s.candidateRow}
+                              >
+                                <div className={s.rankBadge}>{index + 1}</div>
+
+                                <div className={s.candidateInfo}>
+                                  <div className={s.nameRow}>
+                                    <span className={s.candidateName}>
+                                      👤 {candidate.name}
+                                    </span>
+                                    {index === 0 && (
+                                      <motion.span
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        className={s.leadingBadge}
+                                      >
+                                        <Trophy size={12} /> LEADING
+                                      </motion.span>
+                                    )}
+                                  </div>
+                                </div>
+
+                                <div className={s.progressWrapper}>
+                                  <div className={s.progressBarBackground}>
+                                    <motion.div
+                                      className={s.progressBarFill}
+                                      initial={{ width: 0 }}
+                                      animate={{ width: `${percentage}%` }}
+                                      style={{
+                                        backgroundColor: candidate.color,
+                                      }}
+                                    />
+                                  </div>
+                                  <span className={s.percentText}>
+                                    {percentage}%
+                                  </span>
+                                </div>
+
+                                <div className={s.voteResult}>
+                                  <span className={s.voteNum}>
+                                    {candidate.votes}
+                                  </span>
+                                  <span className={s.voteLabel}>VOTES</span>
+                                </div>
+                              </motion.div>
+                            );
+                          })}
+                      </AnimatePresence>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+                ))}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ const Main = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const nextSlide = () => {
     setCurrentIndex((prev) =>
       prev === campaignImages.length - 1 ? 0 : prev + 1,
@@ -49,14 +48,14 @@ const Main = () => {
                 <button className={s.leftArrow} onClick={prevSlide}>
                   &#10094;
                 </button>
-
                 <div className={s.npsImage}>
                   <img
                     src={campaignImages[currentIndex]}
                     alt={`Campaign ${currentIndex + 1}`}
+                    fetchPriority="high"
+                    rel="preload"
                   />
                 </div>
-
                 <button className={s.rightArrow} onClick={nextSlide}>
                   &#10095;
                 </button>

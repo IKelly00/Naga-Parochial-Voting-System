@@ -2,25 +2,15 @@ import React, { useState } from "react";
 import Logo from "../../../assets/Image/logo.png";
 import { User, LockKeyhole, MoveRight, X, Eye } from "lucide-react";
 import styles from "./Header.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Header = ({ schoolName = "Naga Parochial School" }) => {
   const navigate = useNavigate();
-
-  const goBackHome = (e) => {
-    e.preventDefault();
-    navigate("/");
-  };
 
   const handlleLogin = (e) => {
     e.preventDefault();
     setIsModalOpen(!isModalOpen);
     navigate("/dashboard");
-  };
-
-  const showResult = (e) => {
-    e.preventDefault();
-    navigate("/results");
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,18 +28,23 @@ const Header = ({ schoolName = "Naga Parochial School" }) => {
   return (
     <>
       <header id="header">
-        <div className={styles.imgContainer} onClick={goBackHome}>
-          <img src={Logo} className={styles.logo} width="50" height="50"></img>
-          <p className={styles.schoolName}>{schoolName}</p>
-        </div>
+        <Link to="/">
+          <div className={styles.imgContainer}>
+            <img
+              src={Logo}
+              className={styles.logo}
+              width="50"
+              height="50"
+            ></img>
+            <p className={styles.schoolName}>{schoolName}</p>
+          </div>
+        </Link>
         <div className={styles.navLinks}>
-          <button
-            className={styles.resultBtn}
-            id="voteNow"
-            onClick={showResult}
-          >
-            Results
-          </button>
+          <Link to="/results">
+            <button className={styles.resultBtn} id="voteNow">
+              Results
+            </button>
+          </Link>
           <button
             className={styles.navBtn}
             id="voteNow"

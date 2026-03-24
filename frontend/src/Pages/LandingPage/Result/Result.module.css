@@ -219,7 +219,7 @@
   border: 1px solid #eee;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
   animation: fadeIn 1s ease forwards;
-  animation-delay: 0.7s;
+  animation-delay: 0.3s;
   opacity: 0;
 }
 
@@ -353,5 +353,55 @@
   }
   .voteResult {
     display: none;
-  } /* Hide vote count on small mobile to save space */
+  }
+}
+
+.filterBar {
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 0 auto 40px;
+}
+
+.tab {
+  background: transparent;
+  color: #8b949e;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.activeTab {
+  background: #21262d;
+  color: #f0f6fc;
+  border: 1px solid #8b949e;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.orgTitle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(180deg, #1b1b1b 10%, #666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color);
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 8px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(35, 134, 54, 0.2);
 }
