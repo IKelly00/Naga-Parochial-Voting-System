@@ -357,18 +357,21 @@
 }
 
 .filterBar {
+  position: sticky;
+  top: 20px;
   display: flex;
   gap: 8px;
-  background: #ffffff;
+  background: #282b32;
   padding: 4px;
   border-radius: 8px;
   width: fit-content;
-  margin: 0 auto 40px;
+  margin: 40px auto 40px;
+  z-index: 99;
 }
 
 .tab {
   background: transparent;
-  color: #8b949e;
+  color: #ffffffcd;
   border: none;
   padding: 6px 16px;
   border-radius: 6px;
@@ -377,8 +380,8 @@
 }
 
 .activeTab {
-  background: #21262d;
-  color: #f0f6fc;
+  background: #ffffff;
+  color: var(--color);
   border: 1px solid #8b949e;
   padding: 6px 16px;
   border-radius: 6px;
@@ -389,14 +392,14 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   background: linear-gradient(180deg, #1b1b1b 10%, #666 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: var(--color);
   border-bottom: 1px solid #30363d;
   padding-bottom: 8px;
-  margin-top: 50px;
+  margin-top: 3rem;
   margin-bottom: 20px;
 }
 

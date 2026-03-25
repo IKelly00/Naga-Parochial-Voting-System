@@ -9,8 +9,8 @@ const Result = () => {
   const [count, setCount] = useState(0);
 
   const orgTitles = {
-    SCO: "Student Council Officers (SCO) - Grade 3-6",
-    SSG: "Supreme Student Government (SSG) - Grade 7-12",
+    SCO: "Student Council Officers (SCO)",
+    SSG: "Supreme Student Government (SSG)",
   };
 
   const organizationsToShow =
@@ -19,11 +19,8 @@ const Result = () => {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        // Point to the specific count API on port 5000
         const response = await fetch("/api/get-count");
         const data = await response.json();
-
-        // Access .count from the JSON object { count: X }
         setCount(data.count);
       } catch (error) {
         console.error("Failed to fetch count:", error);

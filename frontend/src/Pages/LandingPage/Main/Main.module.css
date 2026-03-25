@@ -1,16 +1,16 @@
 .homeContainer {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   height: auto;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   flex-direction: column;
   padding: 1rem;
 }
@@ -24,29 +24,35 @@
   text-align: center;
 }
 
+.topHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.topHeader span {
+  font-size: 4rem;
+}
+
 .homeHeading {
   font-size: clamp(2rem, 8vw, 4rem);
-  background: linear-gradient(180deg, #1b1b1b 10%, #8b949e 100%);
+  background: linear-gradient(360deg, #1d1d1d 15%, #8b949e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
   line-height: 1.1;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .typingText {
   display: inline-flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #6b6b6b;
-  /* margin-top: 1rem; */
+  color: #797979;
   padding: 8px 24px;
-  background-color: #fff1f1;
-  border: 1px solid #ffcbcb;
-  border-radius: 50px;
-  opacity: 0;
   animation: fadeIn 0.8s ease forwards;
   animation-delay: 0.5s;
 }
@@ -67,15 +73,36 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   padding: 1rem;
-  opacity: 0;
+  /* opacity: 0; */
   transform: translateY(30px);
   animation: slideUpScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.3s;
+  z-index: 10;
+}
+
+.blobLeft {
+  position: absolute;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(255, 0, 0, 0.1);
+  filter: blur(100px);
+  box-shadow: 0 0 100px rgb(249, 0, 0);
+}
+
+.blobRight {
+  position: absolute;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 0, 0, 0.1);
+  filter: blur(100px);
+  box-shadow: 0 0 100px rgb(249, 0, 0);
 }
 
 .card {
-  height: 70vh;
-  min-height: 350px;
+  position: relative;
+  min-height: 400px;
   border-radius: 16px;
   overflow: hidden;
   background-color: #f0f0f0;
@@ -102,7 +129,7 @@
 
 .featureContent {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -111,7 +138,7 @@
 
 .box {
   flex: 1 1 20rem;
-  max-width: 25rem;
+  max-width: 22rem;
   padding: 2.5rem;
   background-color: #fff;
   border-radius: 24px;

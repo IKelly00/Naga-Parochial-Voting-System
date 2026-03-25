@@ -41,7 +41,6 @@ app.get("/api/get-count", async (req, res) => {
     const [rows] = await db.query(
       "SELECT COUNT(*) AS user_count FROM candidates",
     );
-
     const count = rows[0].user_count;
     res.json({
       message: "Count retrieved successfully",

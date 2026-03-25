@@ -37,12 +37,17 @@ const Main = () => {
       <main className={s.homeContainer}>
         <div className={s.container}>
           <div className={s.header}>
-            <h1 className={s.homeHeading}>Empowering Student Voices</h1>
+            <div className={s.topHeader}>
+              <h1 className={s.homeHeading}>Empowering Student Voices</h1>
+            </div>
             <p className={s.typingText}>
-              <span>📃</span> Student Commission Campaign and Election
+              <span>📃</span>
+              Student Commission Campaign and Election
             </p>
           </div>
           <div className={s.cardContainer}>
+            <div className={s.blobLeft}></div>
+            <div className={s.blobRight}></div>
             <div className={s.card}>
               <div className={s.sliderContainer}>
                 <button className={s.leftArrow} onClick={prevSlide}>
