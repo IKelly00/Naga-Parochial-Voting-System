@@ -86,6 +86,7 @@ const Header = ({ schoolName = "Naga Parochial School" }) => {
                   id="username"
                   name="username"
                   placeholder="Enter your username"
+                  autoComplete="current-username"
                   required
                 />
               </div>
@@ -100,6 +101,7 @@ const Header = ({ schoolName = "Naga Parochial School" }) => {
                   id="password"
                   name="password"
                   placeholder="Enter your password"
+                  autoComplete="current-password"
                   required
                 />
                 <Eye

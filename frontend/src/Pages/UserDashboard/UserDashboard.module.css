@@ -1,0 +1,162 @@
+.heroContainer {
+  width: 100%;
+  min-height: 100vh; /* Changed from height to min-height to prevent clipping */
+  max-width: 1200px;
+  margin: 100px auto 4rem; /* Adjusted top margin for fixed navbar */
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.welcomePanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row; /* Default */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 32px;
+  padding: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+
+.badge {
+  color: #e32b2b;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.infoSide h1 {
+  /* Uses clamp to shrink text automatically as the screen gets smaller */
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  margin: 0 0 10px 0;
+  letter-spacing: -2px;
+  line-height: 1.1;
+}
+
+.infoSide p {
+  color: #4a5568;
+  font-size: 1.1rem;
+}
+
+.actionSide {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statusTag {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 1px solid #d1d5da;
+  white-space: nowrap;
+}
+
+.voteBtn {
+  background: #24292e;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.voteBtn:hover {
+  transform: translateY(-3px);
+  background: #000;
+}
+
+.infoGrid {
+  display: flex;
+  flex-wrap: wrap; /* This allows cards to drop to the next line */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem 1.5rem;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid #edf2f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 250px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #1a202c;
+  margin-top: 8px;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1024px) {
+  .welcomePanel {
+    flex-direction: column; /* Stacks text and buttons vertically */
+    text-align: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .actionSide {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statusTag,
+  .voteBtn {
+    width: 100%; /* Makes buttons full-width for easier tapping */
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContainer {
+    margin-top: 80px;
+  }
+
+  .card {
+    padding: 2rem 1rem;
+  }
+
+  .value {
+    font-size: 1.2rem;
+  }
+}

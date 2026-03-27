@@ -46,13 +46,14 @@ const Main = () => {
             </p>
           </div>
           <div className={s.cardContainer}>
-            <div className={s.blobLeft}></div>
-            <div className={s.blobRight}></div>
+            <div className={s.glowLeft}></div>
+            <div className={s.glowRight}></div>
+
             <div className={s.card}>
+              <button className={s.leftArrow} onClick={prevSlide}>
+                &#10094;
+              </button>
               <div className={s.sliderContainer}>
-                <button className={s.leftArrow} onClick={prevSlide}>
-                  &#10094;
-                </button>
                 <div className={s.npsImage}>
                   <img
                     src={campaignImages[currentIndex]}
@@ -61,11 +62,6 @@ const Main = () => {
                     rel="preload"
                   />
                 </div>
-                <button className={s.rightArrow} onClick={nextSlide}>
-                  &#10095;
-                </button>
-
-                {/* Optional: Dots indicator */}
                 <div className={s.dots}>
                   {campaignImages.map((_, index) => (
                     <span
@@ -124,9 +120,9 @@ const Main = () => {
             &copy; {new Date().getFullYear()} - Naga Parochial Election
             Commission. All rights reserved. Conducted with integrity and faith.
           </p>
-          <a onClick={scrollToTop}>
-            <ChevronUp strokeWidth={1} size={12} className={s.upIcon} />
-          </a>
+        </div>
+        <div className={s.upIcon} onClick={scrollToTop}>
+          <ChevronUp size={25} color="#fefefe" />
         </div>
       </footer>
     </>

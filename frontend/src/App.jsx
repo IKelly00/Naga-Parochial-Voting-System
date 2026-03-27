@@ -12,7 +12,7 @@ const App = () => {
         location.pathname.replace("/Naga-Parochial-Voting-System", ""),
     );
     if (currentRoute?.title) {
-      document.title = currentRoute.title + " | Voting System";
+      document.title = currentRoute.title + " | Election System";
     }
   }, [location.pathname]);
 

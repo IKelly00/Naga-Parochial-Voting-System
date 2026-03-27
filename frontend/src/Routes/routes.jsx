@@ -1,5 +1,6 @@
 import UserDashboard from "../Pages/UserDashboard/UserDashboard";
 import Header from "../Pages/LandingPage/Header/Header";
+import DashboardHeader from "../Pages/UserDashboard/DashboardHeader";
 import Main from "../Pages/LandingPage/Main/Main";
 import Result from "../Pages/LandingPage/Result/Result";
 
@@ -15,15 +16,6 @@ export const routes = [
     title: "Landing Page",
   },
   {
-    path: "/dashboard",
-    element: (
-      <>
-        <UserDashboard />
-      </>
-    ),
-    title: "Dashboard",
-  },
-  {
     path: "/results",
     element: (
       <>
@@ -32,5 +24,25 @@ export const routes = [
       </>
     ),
     title: "Live",
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <>
+        <DashboardHeader />
+        <UserDashboard />
+      </>
+    ),
+    title: "Dashboard",
+  },
+  {
+    path: "/user_results",
+    element: (
+      <>
+        <DashboardHeader />
+        <Result />
+      </>
+    ),
+    title: "Dashboard",
   },
 ];

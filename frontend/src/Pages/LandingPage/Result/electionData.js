@@ -61,8 +61,8 @@ export const electionData = [
     organization: "SSG",
     totalVotes: 800,
     candidates: [
-      { id: 201, name: "Dominic Thorne", votes: 350, color: "#f59e0b" },
-      { id: 202, name: "Seraphina Vance", votes: 450, color: "#dc2626" },
+      { id: 201, name: "Dominic Thorne", votes: 450, color: "#f59e0b" },
+      { id: 202, name: "Seraphina Vance", votes: 350, color: "#dc2626" },
     ],
   },
   {
