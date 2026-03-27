@@ -72,6 +72,9 @@ const Main = () => {
                   ))}
                 </div>
               </div>
+              <button className={s.rightArrow} onClick={nextSlide}>
+                &#10095;
+              </button>
             </div>
           </div>
         </div>
