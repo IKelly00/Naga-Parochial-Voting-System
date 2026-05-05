@@ -30,15 +30,6 @@ const DashboardHeader = () => {
                 Dashboard
               </button>
             </Link>
-
-            <Link to="">
-              <button
-                className={`${s.navItem} ${active === "vote" ? s.activeColor : ""}`}
-                onClick={() => setActive("vote")}
-              >
-                Vote Now
-              </button>
-            </Link>
             <Link to="/user_results">
               <button
                 className={s.resultsBtn}
