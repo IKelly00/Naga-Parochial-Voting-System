@@ -5,9 +5,20 @@
   margin: 2rem auto 4rem;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  animation: revealPage 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* --- Filter Styles --- */
+@keyframes revealPage {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .filterContainer {
   position: sticky;
   top: 1.5rem;
@@ -24,8 +35,8 @@
   border-radius: 50px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
   border: 1px solid #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .filterBtn {
@@ -33,14 +44,24 @@
   color: #4a5568;
 }
 
+.filterBtn:hover {
+  transform: translateY(-4px);
+  background: #f8fafc;
+  border-color: #cbd5e0;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+}
+
 .activeFilter {
   background: #24292e;
   color: white;
   border-color: #24292e;
+  box-shadow: 0 15px 25px rgba(36, 41, 46, 0.25);
 }
 
 /* --- Welcome Panel --- */
 .welcomePanel {
+  position: relative;
+  overflow: hidden; /* Clips the shimmer effect */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +73,33 @@
   padding: 3.5rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   margin-bottom: 2rem;
+}
+
+/* Animated Shimmering Light across the glass */
+.welcomePanel::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 25%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: shimmer 3s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -70%;
+  }
+  100% {
+    left: 160%;
+  }
 }
 
 .badge {
@@ -82,6 +130,7 @@
   border-radius: 12px;
   font-weight: 700;
   border: 1px solid #d1d5da;
+  white-space: nowrap;
 }
 
 .voteBtn {
@@ -92,12 +141,18 @@
   border-radius: 12px;
   font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
 }
 
 .voteBtn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-6px) scale(1.04);
   background: #000;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.voteBtn:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
 /* --- Grid & Organization Sections --- */
@@ -133,11 +188,44 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  /* Initial state for stagger */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cardEntry 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+@keyframes cardEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered delay for first 6 items */
+.posCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.posCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.posCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.posCard:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.posCard:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.posCard:nth-child(6) {
+  animation-delay: 0.6s;
 }
 
 .posCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-14px);
+  border-color: #cbd5e0;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
 }
 
 .posHeader {
@@ -187,6 +275,16 @@
   border-radius: 12px;
   font-size: 0.85rem;
   color: #4a5568;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.candidateTag:hover {
+  background: #fff;
+  transform: scale(1.15) rotate(1.5deg);
+  border-color: #24292e;
+  color: #24292e;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  z-index: 99;
 }
 
 /* --- Responsive --- */
@@ -196,6 +294,10 @@
     text-align: center;
     padding: 2rem;
     gap: 1.5rem;
+    animation: none; /* Stabilize on tablet/mobile */
+  }
+  .welcomePanel::after {
+    display: none; /* Hide shimmer on mobile to save CPU */
   }
   .actionSide {
     flex-direction: column;
@@ -207,4 +309,27 @@
   .posCard {
     flex: 1 1 100%;
   }
+}
+
+.votedTag {
+  background: #f0fff4 !important; /* Light green */
+  color: #2f855a !important;
+  border-color: #c6f6d5 !important;
+}
+
+.disabledBtn {
+  background: #e2e8f0;
+  color: #33363a;
+  border: 0.5px solid #1e201e;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: not-allowed;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* Ensure the welcome panel transition remains smooth */
+.welcomePanel {
+  transition: all 0.5s ease;
 }

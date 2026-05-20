@@ -32,8 +32,8 @@ const DashboardHeader = () => {
             </Link>
             <Link to="/user_results">
               <button
-                className={s.resultsBtn}
-                onClick={() => setActive("results")}
+                className={`${s.navItem} ${active === "resultBtn" ? s.activeColor : ""}`}
+                onClick={() => setActive("resultBtn")}
               >
                 Results
               </button>

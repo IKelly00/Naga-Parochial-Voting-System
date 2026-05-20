@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import s from "./UserDashboard.module.css";
+import { useNavigate, Link } from "react-router-dom";
 
 const UserDashboard = () => {
   const [filter, setFilter] = useState("All");
+  const [user, setUser] = useState(null);
+
+  // Load user data from localStorage on mount
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const positions = [
     // SCO Positions
@@ -54,7 +64,6 @@ const UserDashboard = () => {
         "Handles external communications and ensures the community is informed of activities.",
       candidates: ["Andres Bonifacio", "Teresa Magna"],
     },
-
     // SSG Positions
     {
       title: "President",
@@ -119,46 +128,50 @@ const UserDashboard = () => {
       ? positions
       : positions.filter((pos) => pos.org === filter);
 
+  // Logic to check if user has voted
+  const hasVoted = user?.isAlreadyVoted === true || user?.isAlreadyVoted === 1;
+
   return (
     <div className={s.heroContainer}>
-      {/* Welcome Panel */}
       <div className={s.welcomePanel}>
         <div className={s.infoSide}>
           <div className={s.badge}>● PROFILE OVERVIEW</div>
-          <h1>Welcome, Guest!</h1>
-          <p>
-            Voter ID: <strong>NPS-2026-001</strong>
-          </p>
+          <h1>
+            Welcome,{" "}
+            {user && user.full_name ? user.full_name.split(" ")[0] : "Guest"}!
+          </h1>
         </div>
         <div className={s.actionSide}>
-          <div className={s.statusTag}>⌛ Vote Pending</div>
-          <button className={s.voteBtn}>🗳️ Cast Your Vote</button>
+          {/* Change text based on database status */}
+          <div className={`${s.statusTag} ${hasVoted ? s.votedTag : ""}`}>
+            {hasVoted ? "✅ Already Voted" : "⌛ Vote Pending"}
+          </div>
+
+          {/* Disable button and Link if already voted */}
+          {hasVoted ? (
+            <button className={s.disabledBtn} disabled>
+              🗳️ Cast Your Vote
+            </button>
+          ) : (
+            <Link to="/vote">
+              <button className={s.voteBtn}>🗳️ Cast Your Vote</button>
+            </Link>
+          )}
         </div>
       </div>
 
-      {/* Filter Section */}
       <div className={s.filterContainer}>
-        <button
-          className={filter === "All" ? s.activeFilter : s.filterBtn}
-          onClick={() => setFilter("All")}
-        >
-          All
-        </button>
-        <button
-          className={filter === "SSG" ? s.activeFilter : s.filterBtn}
-          onClick={() => setFilter("SSG")}
-        >
-          SSG
-        </button>
-        <button
-          className={filter === "SCO" ? s.activeFilter : s.filterBtn}
-          onClick={() => setFilter("SCO")}
-        >
-          SCO
-        </button>
+        {["All", "SSG", "SCO"].map((type) => (
+          <button
+            key={type}
+            className={filter === type ? s.activeFilter : s.filterBtn}
+            onClick={() => setFilter(type)}
+          >
+            {type}
+          </button>
+        ))}
       </div>
 
-      {/* Organization Headers & Grid */}
       {(filter === "All" || filter === "SSG") && (
         <div className={s.orgSection}>
           <div className={s.sectionHeader}>
@@ -192,7 +205,6 @@ const UserDashboard = () => {
   );
 };
 
-// Reusable Card Component
 const PositionCard = ({ pos }) => (
   <div className={s.posCard}>
     <div className={s.posHeader}>

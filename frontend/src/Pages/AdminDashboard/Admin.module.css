@@ -1,0 +1,646 @@
+/* --- Admin Layout & Root Styles --- */
+.loginContainer,
+.dashboardWrapper {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* --- Admin Login Page (Matching Vote Container Entrance) --- */
+.loginContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(139, 29, 29, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(26, 43, 75, 0.05) 0px, transparent 50%);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.loginCard {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 3.5rem;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.adminIcon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.loginHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(180deg, #1b1b1b 30%, #666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loginHeader p {
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* --- Form Elements (Aligned with Ballot Selectors) --- */
+.inputGroup {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #8b1d1d;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(139, 29, 29, 0.1);
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 1.1rem;
+  background: #1a2b4b;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 1rem;
+}
+
+.loginBtn:hover {
+  background: #0f172a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(26, 43, 75, 0.2);
+}
+
+/* --- Dashboard Sidebar Redesign --- */
+.dashboardWrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+.sidebar {
+  width: 300px;
+  background: #1a2b4b;
+  color: white;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.sideHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 3.5rem;
+  padding-left: 10px;
+}
+
+.sideHeader h2 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+}
+
+.brandIcon {
+  font-size: 2rem;
+}
+
+.sideNav {
+  flex: 1;
+}
+
+.navItem {
+  padding: 14px 20px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.navActive {
+  background: linear-gradient(90deg, #8b1d1d, #b91c1c) !important;
+  color: white;
+  box-shadow: 0 8px 15px rgba(139, 29, 29, 0.2);
+}
+
+.logoutBtn {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fca5a5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* --- Main Dashboard Content (Aligned with Ballot Progress View) --- */
+.mainContent {
+  flex: 1;
+  padding: 4rem;
+  overflow-y: auto;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.mainHeader h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2b4b;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.mainHeader p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* --- Admin Cards (Matching positionCard) --- */
+.formCard,
+.listCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 2.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.6s ease-out both;
+}
+
+.formCard h3,
+.listCard h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a2b4b;
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.adminForm textarea {
+  height: 120px;
+  resize: none;
+}
+
+.addBtn {
+  width: 100%;
+  padding: 1rem;
+  background: #059669; /* Success Green from Ballot */
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.addBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(5, 150, 105, 0.2);
+}
+
+/* --- Table & List Redesign --- */
+.candidateTableWrapper {
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: 800;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tableRow {
+  transition: all 0.3s ease;
+  position: relative;
+  isolation: isolate; /* Creates a clean slate for z-index */
+}
+
+.tableRow:hover {
+  z-index: 10;
+  position: relative; /* relative is required for z-index to work */
+}
+
+.tableRow td {
+  background: white;
+  padding: 18px 15px;
+  font-size: 0.95rem;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tableRow td:first-child {
+  border-left: 1px solid #f1f5f9;
+  border-radius: 12px 0 0 12px;
+}
+.tableRow td:last-child {
+  border-right: 1px solid #f1f5f9;
+  border-radius: 0 12px 12px 0;
+}
+
+.tableRow:hover td {
+  background: #fff5f5; /* Light red hover */
+  border-color: #fca5a5;
+  transform: scale(1.01);
+}
+
+.badge {
+  background: #eff6ff; /* VotePill style */
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.deleteBtn {
+  color: #ef4444;
+  background: #fee2e2;
+  border: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+  filter: brightness(1.01);
+}
+
+/* --- Shared Animations (Matching Vote.module.css) --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --- Responsive Alignment --- */
+@media (max-width: 1200px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  .mainContent {
+    padding: 2rem;
+  }
+  .sidebar {
+    width: 80px;
+    padding: 2rem 0.5rem;
+  }
+  .sidebar h2,
+  .navItem {
+    display: none;
+  }
+  .sideHeader {
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+/* --- Description Cell & Modal Styling --- */
+.descCell {
+  position: relative;
+}
+
+.descCell:hover {
+  z-index: 100;
+}
+
+.seeMore {
+  color: #443c3c;
+  /* font-weight: 700; */
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.seeMore:hover {
+  color: #475569;
+}
+
+.descModal {
+  position: absolute;
+  top: 100%; /* Positions below the "See more" text */
+  left: 0;
+  z-index: 9999;
+  width: 280px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  animation: modalFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none; /* Prevents flickering when mouse moves over it */
+}
+
+.descModalArrow {
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-left: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+  transform: rotate(45deg);
+  z-index: 9999;
+}
+
+.descModal small {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  z-index: 9999;
+}
+
+.descCell:hover {
+  z-index: 150;
+  position: relative;
+}
+
+.descModal p {
+  color: #1e293b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: normal; /* Allows text to wrap */
+  margin: 0;
+  z-index: 999;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.emptyRow {
+  text-align: center;
+  padding: 2rem !important;
+  color: #94a3b8;
+}
+
+/* Ensure the table doesn't clip the modal */
+.candidateTableWrapper {
+  overflow: visible !important;
+  margin-top: 1rem;
+}
+
+/* ... Existing Root and Layout Styles ... */
+
+/* --- Image Upload Redesign --- */
+.imageUploadSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+}
+
+.imagePreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholderImg {
+  font-size: 2.5rem;
+  opacity: 0.3;
+}
+
+.fileInputWrapper {
+  position: relative;
+}
+
+.fileLabel {
+  background: #1a2b4b;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fileLabel:hover {
+  background: #8b1d1d;
+  transform: translateY(-2px);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* --- Table Avatar Style --- */
+.tableAvatar {
+  width: 40px;
+  height: 40px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 1.2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.tableAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Glassmorphism & Shadow Alignment --- */
+.formCard,
+.listCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.inputGroup input:focus {
+  box-shadow: 0 0 0 4px rgba(139, 29, 29, 0.15);
+  border-color: #8b1d1d;
+}
+
+/* --- Success Button --- */
+.addBtn {
+  background: linear-gradient(135deg, #059669, #10b981);
+  box-shadow: 0 10px 20px rgba(5, 150, 105, 0.2);
+}
+
+/* --- Table Hover Polish --- */
+.tableRow td {
+  background: white;
+  padding: 18px 15px;
+  font-size: 0.85rem; /* Reduced from 0.95rem to accommodate longer names */
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap; /* Prevents text from creating a new line */
+  vertical-align: middle;
+}
+
+/* Specific styling for the candidate name to ensure it stays on one line */
+.tableRow td:nth-child(2) {
+  font-weight: 800;
+  color: #1a2b4b;
+  letter-spacing: -0.2px;
+  max-width: 200px; /* Limits width to prevent pushing other columns */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds '...' if the name is still too long for the container */
+}
+
+/* Ensure the position/department text also doesn't wrap */
+.tableRow td:nth-child(4) {
+  color: #475569;
+  font-weight: 500;
+}

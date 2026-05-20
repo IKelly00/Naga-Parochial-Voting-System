@@ -1,15 +1,30 @@
+/* --- Root Layout & Typography --- */
 .navbar {
   width: 100%;
   height: 70px;
   padding: 40px 5%;
   background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px); /* Enhanced glass effect */
   border-bottom: 1px solid rgba(224, 224, 224, 0.7);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 0 0 16px 16px;
   display: flex;
   align-items: center;
-  top: 0;
   z-index: 2000;
+
+  /* Entrance Animation */
+  animation: slideDown 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .navContent {
@@ -26,6 +41,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.logoSection:hover {
+  transform: scale(1.02);
 }
 
 .logo {
@@ -35,17 +55,18 @@
 .schoolName {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: 600;
-  /* font-size: 1.15rem; */
   color: #1b1b1b;
 }
 
+/* --- Navigation Links --- */
 .navLinks {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.navItem {
+.navItem,
+.resultsBtn {
   font-size: 0.9rem;
   background: white;
   border: 1px solid #d1d5da;
@@ -55,25 +76,26 @@
   cursor: pointer;
   color: #1b1b1b;
   white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
+}
+
+.navItem:hover,
+.resultsBtn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.navItem:active,
+.resultsBtn:active {
+  transform: translateY(0);
 }
 
 .activeColor {
   color: var(--primary-color) !important;
-}
-
-/* Optional: hover state matches the active color for consistency */
-.navItem:hover {
-  color: var(--primary-color);
-}
-
-.resultsBtn {
-  font-size: 0.9rem;
-  background: white;
-  border: 1px solid #d1d5da;
-  padding: 10px 32px;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
+  border-color: var(--primary-color) !important;
+  background: #fff5f5 !important;
 }
 
 .divider {
@@ -82,6 +104,7 @@
   background: var(--border-color);
 }
 
+/* --- Primary Action (Logout) --- */
 .logoutBtn {
   font-size: 0.9rem;
   background: var(--primary-color);
@@ -89,43 +112,68 @@
   border: none;
   padding: 10px 32px;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+.logoutBtn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 15px rgba(139, 29, 29, 0.3); /* Maroon-tinted shadow */
+  transform: translateY(-2px);
+}
+
+/* --- MODAL ANIMATIONS --- */
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3); /* Darkens the background */
-
-  /* This blurs everything BEHIND the overlay */
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it is above everything */
+  z-index: 9999;
+
+  /* Fade in overlay */
+  animation: fadeIn 0.3s ease-out;
 }
 
-/* This is the white box that must remain sharp */
 .modalCard {
-  background: #ffffff; /* Must be solid white to stop the blur effect */
+  background: #ffffff;
   padding: 2.5rem;
   border-radius: 24px;
   width: 90%;
   max-width: 420px;
   text-align: center;
-
-  /* Add a shadow to make it pop against the blur */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.8);
 
-  /* Ensure the content inside is not blurred */
-  backdrop-filter: none !important;
+  /* Pop-up effect */
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modalCard h3 {
@@ -146,39 +194,50 @@
   gap: 12px;
 }
 
-.cancelBtn {
+.cancelBtn,
+.confirmBtn {
   flex: 1;
-  background: #f1f3f5;
-  border: 1px solid #d1d5da;
   padding: 14px;
   border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn {
+  background: #f1f3f5;
+  border: 1px solid #d1d5da;
   color: #24292e;
 }
 
-.confirmBtn {
-  flex: 1;
-  background: var(--primary-color); /* Your primary red */
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
+.cancelBtn:hover {
+  background: #e9ecef;
 }
 
+.confirmBtn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.confirmBtn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* --- Responsive States --- */
 @media (max-width: 768px) {
   .logoSection {
     width: 100%;
-    justify-content: center; /* Centers logo on small screens */
+    justify-content: center;
   }
   .navLinks {
     width: 100%;
     justify-content: center;
     gap: 0.8rem;
+    margin-top: 1rem;
   }
   .schoolName {
-    display: none; /* Hides school name on mobile to save space */
+    display: none;
   }
 }
