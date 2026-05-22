@@ -6,7 +6,11 @@ const AdminLogin = ({ onLoginSuccess }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (user.username === "admin" && user.password === "admin") {
+
+    const envUsername = import.meta.env.VITE_ADMIN_USERNAME;
+    const envPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+
+    if (user.username === envUsername && user.password === envPassword) {
       onLoginSuccess();
     } else {
       alert("Invalid Credentials");

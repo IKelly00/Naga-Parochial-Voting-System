@@ -1,4 +1,3 @@
-/* --- Admin Layout & Root Styles --- */
 .loginContainer,
 .dashboardWrapper {
   font-family:
@@ -10,7 +9,6 @@
   overflow-x: hidden;
 }
 
-/* --- Admin Login Page (Matching Vote Container Entrance) --- */
 .loginContainer {
   height: 100vh;
   display: flex;
@@ -60,7 +58,6 @@
   font-size: 0.95rem;
 }
 
-/* --- Form Elements (Aligned with Ballot Selectors) --- */
 .inputGroup {
   margin-bottom: 1.5rem;
   display: flex;
@@ -115,7 +112,6 @@
   box-shadow: 0 10px 20px rgba(26, 43, 75, 0.2);
 }
 
-/* --- Dashboard Sidebar Redesign --- */
 .dashboardWrapper {
   display: flex;
   min-height: 100vh;
@@ -195,7 +191,6 @@
   color: white;
 }
 
-/* --- Main Dashboard Content (Aligned with Ballot Progress View) --- */
 .mainContent {
   flex: 1;
   padding: 4rem;
@@ -223,7 +218,6 @@
   margin-top: 3rem;
 }
 
-/* --- Admin Cards (Matching positionCard) --- */
 .formCard,
 .listCard {
   background: rgba(255, 255, 255, 0.7);
@@ -257,7 +251,7 @@
 .addBtn {
   width: 100%;
   padding: 1rem;
-  background: #059669; /* Success Green from Ballot */
+  background: #059669;
   color: white;
   border: none;
   border-radius: 14px;
@@ -272,7 +266,6 @@
   box-shadow: 0 10px 15px rgba(5, 150, 105, 0.2);
 }
 
-/* --- Table & List Redesign --- */
 .candidateTableWrapper {
   margin-top: 1rem;
   overflow: hidden;
@@ -297,12 +290,12 @@
 .tableRow {
   transition: all 0.3s ease;
   position: relative;
-  isolation: isolate; /* Creates a clean slate for z-index */
+  isolation: isolate;
 }
 
 .tableRow:hover {
   z-index: 10;
-  position: relative; /* relative is required for z-index to work */
+  position: relative;
 }
 
 .tableRow td {
@@ -323,13 +316,13 @@
 }
 
 .tableRow:hover td {
-  background: #fff5f5; /* Light red hover */
+  background: #fff5f5;
   border-color: #fca5a5;
   transform: scale(1.01);
 }
 
 .badge {
-  background: #eff6ff; /* VotePill style */
+  background: #eff6ff;
   color: #2563eb;
   padding: 6px 14px;
   border-radius: 50px;
@@ -353,7 +346,6 @@
   filter: brightness(1.01);
 }
 
-/* --- Shared Animations (Matching Vote.module.css) --- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -386,7 +378,6 @@
   }
 }
 
-/* --- Responsive Alignment --- */
 @media (max-width: 1200px) {
   .contentGrid {
     grid-template-columns: 1fr;
@@ -408,7 +399,6 @@
   }
 }
 
-/* --- Description Cell & Modal Styling --- */
 .descCell {
   position: relative;
 }
@@ -419,7 +409,6 @@
 
 .seeMore {
   color: #443c3c;
-  /* font-weight: 700; */
   font-size: 0.85rem;
   cursor: pointer;
   text-decoration: underline;
@@ -432,7 +421,7 @@
 
 .descModal {
   position: absolute;
-  top: 100%; /* Positions below the "See more" text */
+  top: 100%;
   left: 0;
   z-index: 9999;
   width: 280px;
@@ -444,7 +433,7 @@
     0 0 0 1px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e8f0;
   animation: modalFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none; /* Prevents flickering when mouse moves over it */
+  pointer-events: none;
 }
 
 .descModalArrow {
@@ -480,7 +469,7 @@
   color: #1e293b;
   font-size: 0.9rem;
   line-height: 1.6;
-  white-space: normal; /* Allows text to wrap */
+  white-space: normal;
   margin: 0;
   z-index: 999;
 }
@@ -502,15 +491,11 @@
   color: #94a3b8;
 }
 
-/* Ensure the table doesn't clip the modal */
 .candidateTableWrapper {
   overflow: visible !important;
   margin-top: 1rem;
 }
 
-/* ... Existing Root and Layout Styles ... */
-
-/* --- Image Upload Redesign --- */
 .imageUploadSection {
   display: flex;
   flex-direction: column;
@@ -571,7 +556,6 @@
   display: none;
 }
 
-/* --- Table Avatar Style --- */
 .tableAvatar {
   width: 40px;
   height: 40px;
@@ -591,7 +575,6 @@
   object-fit: cover;
 }
 
-/* --- Glassmorphism & Shadow Alignment --- */
 .formCard,
 .listCard {
   background: rgba(255, 255, 255, 0.7);
@@ -612,34 +595,30 @@
   border-color: #8b1d1d;
 }
 
-/* --- Success Button --- */
 .addBtn {
   background: linear-gradient(135deg, #059669, #10b981);
   box-shadow: 0 10px 20px rgba(5, 150, 105, 0.2);
 }
 
-/* --- Table Hover Polish --- */
 .tableRow td {
   background: white;
   padding: 18px 15px;
-  font-size: 0.85rem; /* Reduced from 0.95rem to accommodate longer names */
+  font-size: 0.85rem;
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
-  white-space: nowrap; /* Prevents text from creating a new line */
+  white-space: nowrap;
   vertical-align: middle;
 }
 
-/* Specific styling for the candidate name to ensure it stays on one line */
 .tableRow td:nth-child(2) {
   font-weight: 800;
   color: #1a2b4b;
   letter-spacing: -0.2px;
-  max-width: 200px; /* Limits width to prevent pushing other columns */
+  max-width: 200px;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adds '...' if the name is still too long for the container */
+  text-overflow: ellipsis;
 }
 
-/* Ensure the position/department text also doesn't wrap */
 .tableRow td:nth-child(4) {
   color: #475569;
   font-weight: 500;
