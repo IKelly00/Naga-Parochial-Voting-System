@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2026 at 07:38 AM
+-- Generation Time: May 25, 2026 at 06:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `nps_election`
 --
+CREATE DATABASE IF NOT EXISTS `nps_election` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `nps_election`;
 
 -- --------------------------------------------------------
 
@@ -27,14 +29,17 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
-CREATE TABLE `admins` (
-  `AdminID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `AdminID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(50) NOT NULL,
   `PasswordHash` varchar(255) NOT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `LastLogin` datetime DEFAULT NULL,
-  `CreatedAt` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `CreatedAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`AdminID`),
+  UNIQUE KEY `Username` (`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -42,14 +47,16 @@ CREATE TABLE `admins` (
 -- Table structure for table `candidates`
 --
 
-CREATE TABLE `candidates` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `candidates`;
+CREATE TABLE IF NOT EXISTS `candidates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `org` varchar(50) DEFAULT NULL,
   `position` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `candidates`
@@ -57,7 +64,7 @@ CREATE TABLE `candidates` (
 
 INSERT INTO `candidates` (`id`, `name`, `org`, `position`, `description`, `image`) VALUES
 (18, 'Akisha C. San Miguel', 'SSG', 'President', 'Focused on student\'s skills improvement and hands-on activity platform.', '1779284761843.jpg'),
-(20, 'Michael A. Jardinel', 'SCO', 'Secretary', 'TEST', '1779294530773.jpg');
+(21, 'Kel Ablaneda', 'SSG', 'Vice President', 'TEST', '1779725929496.jpg');
 
 -- --------------------------------------------------------
 
@@ -65,15 +72,18 @@ INSERT INTO `candidates` (`id`, `name`, `org`, `position`, `description`, `image
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `full_name` varchar(100) DEFAULT NULL,
   `role` enum('voter','admin') DEFAULT 'voter',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `isAlreadyVoted` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `isAlreadyVoted` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -82,52 +92,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `role`, `created_at`, `isAlreadyVoted`) VALUES
 (1, 'Jonathan@nps.edu.ph', 'password', 'David Jonathan', 'voter', '2026-05-14 18:35:30', 1),
 (2, 'JuanCruz@nps.edu.ph', 'mypassword123', 'Juan Cruz', 'voter', '2026-05-14 21:33:04', 1);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`AdminID`),
-  ADD UNIQUE KEY `Username` (`Username`);
-
---
--- Indexes for table `candidates`
---
-ALTER TABLE `candidates`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `candidates`
---
-ALTER TABLE `candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
